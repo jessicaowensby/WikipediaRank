@@ -1,11 +1,17 @@
---
---
---
-
+------------------------------------
+-- author: jessica.owensby@gmail.com
+-- description: recreates the page_rank table
+-- page_rank contains the list of the top 10 wikipedia pages for each language
+-- based on non-unique page views 
+-- 07.27.14
+-------------------------------------
 DROP TABLE IF EXISTS page_rank;
 
+--set hive parameters
 CREATE TABLE page_rank AS
-SELECT language, page_name, rank
+SELECT language, 
+page_name, 
+rank
 FROM (
 SELECT 
 page_name,

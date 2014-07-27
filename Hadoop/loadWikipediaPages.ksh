@@ -1,3 +1,4 @@
+#!/usr/bin/ksh
 #parameterize
 wget http://dumps.wikimedia.org/other/pagecounts-raw/2012/2012-01/pagecounts-20120101-000000.gz
 
