@@ -1,5 +1,3 @@
-###NBS###
-===
 In search of the 10 most popular wikipedia pages by language.
 
 ####Design considerations and enhancements####
