@@ -1,0 +1,4 @@
+a.b MediaWiki:Aboutpage 1
+aa.b Template:Delete 1
+aa.b MediaWiki:Exif-scenecapturetype-2 2
+aa.d Main_Page 1
