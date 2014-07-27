@@ -2,9 +2,8 @@
 ===
 In search of the 10 most popular wikipedia pages by language.
 
-
 Design considerations and enhancements
---
+<code>
 --CREATE TABLE IF NOT EXISTS page_counts_sequence
 --(
 --language STRING,
@@ -22,4 +21,4 @@ Design considerations and enhancements
 --INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;
 ----If data is coming in hourly, then we can look at bucketing or partitions
 ----INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;
-
+</code>
