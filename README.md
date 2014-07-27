@@ -19,4 +19,6 @@ In search of the 10 most popular wikipedia pages by language.
 </pre>
 
 If data is coming in hourly, then we can look at bucketing or partitions
+<pre>
 <code>--INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;</code>
+</pre>
