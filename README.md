@@ -32,3 +32,6 @@ Gz is _not_ splitable. As an improvement, not implemented in this code, we shoul
 --INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;
 </code>
 </pre>
+
+Generalize and parameterize all scripts.
+
