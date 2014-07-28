@@ -56,9 +56,9 @@ Gz is _not_ splitable. As an improvement, not implemented in this code, we shoul
 Build out the Beetest test suite to unit test pre-canned data.
 
 Generalize and parameterize all scripts.
-# Date: year, month, day, hour
-# database
-# table name
+* Date: year, month, day, hour
+* database
+* table name
 
 HIVE performance tuning needed.
 
