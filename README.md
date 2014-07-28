@@ -29,7 +29,32 @@ Once the job has completed, the rank data will be available in HIVE in the wikip
 
 <pre>
 <code>
-select * from wikipedia.page_rank where lanaguage = 'en';
+hive> select * from page_rank where language = 'en';
+Total MapReduce jobs = 1
+Launching Job 1 out of 1
+Number of reduce tasks is set to 0 since there's no reduce operator
+Starting Job = job_1406420995316_0034, Tracking URL = http://localhost:8088/proxy/application_1406420995316_0034/
+Kill Command = /usr/lib/hadoop/bin/hadoop job  -kill job_1406420995316_0034
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 0
+2014-07-26 20:53:00,073 Stage-1 map = 0%,  reduce = 0%
+2014-07-26 20:53:08,445 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.62 sec
+2014-07-26 20:53:09,471 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 1.62 sec
+MapReduce Total cumulative CPU time: 1 seconds 620 msec
+Ended Job = job_1406420995316_0034
+MapReduce Jobs Launched: 
+Job 0: Map: 1   Cumulative CPU: 1.62 sec   HDFS Read: 1796324 HDFS Write: 159 SUCCESS
+Total MapReduce CPU Time Spent: 1 seconds 620 msec
+OK
+en	Main_Page	1
+en	Auld_Lang_Syne	2
+en	Cyndi_Lauper	3
+en	2012_phenomenon	4
+en	Bee_Gees	5
+en	Nina_Simone	6
+en	Gregory_Porter	7
+en	404_error	8
+en	Jools_Holland	9
+Time taken: 18.623 seconds, Fetched: 9 row(s)
 </code>
 </pre>
 
