@@ -5,6 +5,7 @@
 -- based on non-unique page views 
 -- 07.27.14
 -------------------------------------
+use wikipedia;
 DROP TABLE IF EXISTS page_rank;
 
 set hive.exec.parallel=true;
