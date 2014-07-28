@@ -1,5 +1,3 @@
-###NBS###
-===
 In search of the 10 most popular wikipedia pages by language.
 
 Using HIVE to output the 10 most popular wikipedia pages by language.
