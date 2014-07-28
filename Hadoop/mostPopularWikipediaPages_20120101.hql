@@ -7,7 +7,7 @@
 -------------------------------------
 DROP TABLE IF EXISTS page_rank;
 
---set hive parameters
+set hive.exec.parallel=true;
 CREATE TABLE page_rank AS
 SELECT language, 
 page_name, 
