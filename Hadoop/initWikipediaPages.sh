@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 ###########################################################
 # This script is only called once, upon RPM installation.
-# 
 ###########################################################
-log_err()
-{
-	echo "$1" 1>&2
-};
 
-[[ hive -f schema/wikipedia.1.0.ddl ]] || log_err "Unable to initialize the wikipedia data structures."
+hive -f Hadoop/schema/wikipedia.1.0.ddl
+rc=$?
+
+if [[ $rc -ne 0 ]];then
+  echo "Unable to initialize the wikipedia data structures."
+  exit 1
+fi

@@ -4,12 +4,34 @@ Using HIVE to output the 10 most popular wikipedia pages by language.
 
 ####Infrastructure Deployment####
 
-Use Jenkins to build an RPM (of the attached code) to lay down files onto a client/gateway server that sits in front of Hadoop.
+Use Jenkins to build an RPM (of the attached code) to lay down files onto a client/gateway server that sits in front of Hadoop.  All paths are relative, but could be parameterized or absolute for the RPM install.
 
 Use Puppet or Chef to install the RPM.
 <pre><code>package { “MostPopularWikipedia":    ensure => “latest"}</code></pre>
 
+The RPM will call the initWikipediaPages.sh script upon installation.
+<pre>
+<code>
+./Hadoop/initWikipediaPages.sh
+</code>
+</pre>
+
 If job needs to run on a schedule to pull down each hour from Wikipedia, the job can be scheduled via oozie.
+Users can run the load job manually by executing the loadWikipediaPages.sh script from the project's root directory (cd WikipediaRank). 
+
+<pre>
+<code>
+./Hadoop/loadWikipediaPages.sh
+</code>
+</pre>
+
+Once the job has completed, the rank data will be available in HIVE in the wikipedia database in the page_rank table.
+
+<pre>
+<code>
+select * from wikipedia.page_rank where lanaguage = 'en';
+</code>
+</pre>
 
 ####Design Enhancements####
 
@@ -31,5 +53,9 @@ Gz is _not_ splitable. As an improvement, not implemented in this code, we shoul
 </code>
 </pre>
 
+Build out the Beetest test suite to unit test pre-canned data.
+
 Generalize and parameterize all scripts.
+
+Alternatively, call HIVE via JDBC.  This would allow for use of increased code reuse and workflow orchestration, as well as, the ability to dynamically generate more complex pieces of SQL using templating frameworks.
 
