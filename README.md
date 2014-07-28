@@ -40,16 +40,18 @@ There will be approximately be ~5TB of compressed wikipedia data for 8 Years of 
 Gz is _not_ splitable. As an improvement, not implemented in this code, we should load the files as sequence (or ORC, depending on the version of Hadoop) files to allow Hadoop to assign multiple mappers to read the page_counts data.
 <pre>
 <code>
---CREATE TABLE IF NOT EXISTS page_counts_sequence(
---language STRING,
---page_name STRING,
---non_unique_views INT,
---bytes_transferred INT)
---STORED AS SEQUENCEFILE;
---LOAD DATA LOCAL INPATH 'pagecounts-20120101-000000.gz' INTO TABLE page_counts;
---SET hive.exec.compress.output=true;
---SET io.seqfile.compression.type=BLOCK;
---INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;
+CREATE TABLE IF NOT EXISTS page_counts_sequence(
+language STRING,
+page_name STRING,
+non_unique_views INT,
+bytes_transferred INT)
+STORED AS SEQUENCEFILE;
+
+LOAD DATA LOCAL INPATH 'pagecounts-20120101-000000.gz' INTO TABLE page_counts;
+
+SET hive.exec.compress.output=true;
+SET io.seqfile.compression.type=BLOCK;
+INSERT OVERWRITE TABLE page_counts_sequence SELECT * FROM page_counts;
 </code>
 </pre>
 
